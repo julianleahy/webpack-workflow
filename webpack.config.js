@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -41,6 +42,11 @@ module.exports = {
             filename: '[name].css',
             allChunks: true,
             disable: !isProduction
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html'),
+            inject: 'body',
+            filename: 'index.html'
         })
     ]
 
