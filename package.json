@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "workflow setup for webpack",
   "main": "index.js",
+  "browserslist": [
+    "> 1%"
+  ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
