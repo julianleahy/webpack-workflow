@@ -67,6 +67,12 @@ module.exports = {
         historyApiFallback: true,
         stats: 'errors-only'
     },
+    resolve: {
+        alias: {
+            'styles': path.resolve(__dirname, 'src/styles'),
+            'images': path.resolve(__dirname, 'src/images')
+        }
+    },
     plugins: [
         new ExtractTextPlugin({
             filename: '[name].css',
