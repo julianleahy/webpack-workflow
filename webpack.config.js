@@ -17,6 +17,13 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             }
         ]
+    },
+    devserver: {
+        contentBase: path.join(__dirname, 'dist'),
+        inline: true,
+        open: true,
+        historyApiFallback: true,
+        stats: 'errors-only'
     }
 
     
