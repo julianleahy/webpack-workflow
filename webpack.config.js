@@ -1,4 +1,6 @@
+const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -15,7 +17,15 @@ module.exports = {
                 test: /\.js$/,
                 use: 'babel-loader',
                 include: path.join(__dirname, 'src')
-            }
+            },
+            {
+                test: /\.(css|scss|sass)$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'sass-loader']
+                }),
+                include: path.join(__dirname, 'src')
+            },
         ]
     },
     devserver: {
@@ -24,7 +34,14 @@ module.exports = {
         open: true,
         historyApiFallback: true,
         stats: 'errors-only'
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: '[name].css',
+            allChunks: true,
+            disable: !isProduction
+        })
+    ]
 
     
 }
