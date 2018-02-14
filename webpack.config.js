@@ -83,7 +83,10 @@ module.exports = {
             template: path.join(__dirname, 'src', 'index.html'),
             inject: 'body',
             filename: 'index.html'
-        })
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        }),
     ]
 
     
