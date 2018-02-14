@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
     context: path.join(__dirname, 'src'),
