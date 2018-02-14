@@ -60,7 +60,7 @@ module.exports = {
             }
         ]
     },
-    devserver: {
+    devServer: {
         contentBase: path.join(__dirname, 'dist'),
         inline: true,
         open: true,
